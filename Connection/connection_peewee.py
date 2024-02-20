@@ -10,7 +10,8 @@ def connect_peewee():
         'rybin_Smart_Of',
         user='rybin_adSmartOf',
         password='111111',
-        host='10.11.13.118'
+        # host='10.11.13.118'
+        host='localhost'
     )
 
     try:

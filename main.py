@@ -1,6 +1,7 @@
 from Controllers.Camera_Controller import Camera_Controller
 from Controllers.Electrical_line_Controller import *
 from Controllers.Cabinet_Controller import *
+from Controllers.SetionController import SectionController
 
 # line = Electrical_line_Controller()
 # line.add('207Т')
@@ -35,10 +36,31 @@ camera = Camera_Controller()
 # for el in camera.get():
 #     print(el.name,el.link,el.cabinet_id.name)
 
-electric = Electrical_line_Controller()
+# electric = Electrical_line_Controller()
+#
+# for el in electric.get():
+#     print(el.state, el.cabinet_id.name)
+# electric.add(False,'207Т')
+# for el in electric.get():
+#     print(el.state, el.cabinet_id.name)
 
-for el in electric.get():
-    print(el.state, el.cabinet_id.name)
-electric.add(False,'207Т')
-for el in electric.get():
-    print(el.state, el.cabinet_id.name)
+setion = SectionController()
+setion.print_get()
+#
+# setion.add('207T-2')
+# setion.print_get()
+# setion.show('207T-22')
+
+# date1 = [
+#     {'name':'204T-1'},
+#     {'name':'204T-2'},
+# ]
+#
+# setion.add_many_One(date1)
+
+date2 = [
+    ('206T-1'),
+    ('204T-2')
+]
+setion.add_many_Two(date2)
+setion.print_get()
