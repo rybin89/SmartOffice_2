@@ -1,0 +1,7 @@
+<RCC>
+  <qresource prefix="img">
+    <file>lamp-charge-svgrepo-com.svg</file>
+    <file>power-button-svgrepo-com.svg</file>
+    <file>power-button-svgrepo-com-red.svg</file>
+  </qresource>
+</RCC>
