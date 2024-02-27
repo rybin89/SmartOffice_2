@@ -1,44 +1,36 @@
-from Controllers.Camera_Controller import Camera_Controller
-from Controllers.Electrical_line_Controller import *
-from Controllers.Cabinet_Controller import *
+from Controllers.LampController import *
+from Controllers.SectionController import *
 
-# line = Electrical_line_Controller()
-# line.add('207Т')
-# camera = Camera_Controller()
-
-cabinet = Cabinet_Controller()
-camera = Camera_Controller()
-# try:
+lamp = LampController()
+section = SectionController()
 #
-#     print(camera.get_camera_cabinet())
-#     for elem in camera.get_camera_cabinet():
-#         print(elem.name, elem.link, elem.cabinet)
-#
-#     camera.add('#1','https://i.ytimg.com/vi/HR86p6NVGbY/maxresdefault.jpg','312Т')
-# except peewee.InterfaceError as error:
-#     print('Ошибка!', error)
-# except peewee.IntegrityError as error:
-#     print('Ошибка!', error)
+# lamp.print_get()
+# print('Section')
+# section.print_get()
 
-# try:
-#     cabinet.add_value('215','1232')
-#     # cabinet.add_value('12','123')
-#     # for element in cabinet.get():
-#     #     print(element.name,element.department)
-# except peewee.DataError as error:
-#     print('Ошибка!', error)
+# print('add Section')
+# section.add('218T-1')
+# section.print_get()
+# print('Add lamp - 2')
+# lamp.add_2('218T-1','218Т')
+# lamp.add(1,1)
+# lamp.print_get()
 
+# lamp.show(1)
+# Список словарей
+# print('Add many lamps')
+# lamps = [
+#     {'seсtion_id': 1, 'cabinet_id':1},
+#     {'seсtion_id': 1, 'cabinet_id':1},
+#     {'seсtion_id': 4, 'cabinet_id':18},
+#     {'seсtion_id': 4, 'cabinet_id':18},
+# ]
+# lamp.add_many(lamps)
+# lamp.print_get()
 
-# for el in camera.get():
-#     print(el.name,el.link,el.cabinet_id.name)
-# camera.add('№244', 'ссылка', '215Т')
-# for el in camera.get():
-#     print(el.name,el.link,el.cabinet_id.name)
+lamp.show(8)
+lamp.update_One(8,True)
+lamp.show(8)
+lamp.update_Two(8,False)
+lamp.show(8)
 
-electric = Electrical_line_Controller()
-
-for el in electric.get():
-    print(el.state, el.cabinet_id.name)
-electric.add(False,'207Т')
-for el in electric.get():
-    print(el.state, el.cabinet_id.name)
