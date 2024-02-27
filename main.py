@@ -1,66 +1,16 @@
-from Controllers.Camera_Controller import Camera_Controller
-from Controllers.Electrical_line_Controller import *
-from Controllers.Cabinet_Controller import *
-from Controllers.SetionController import SectionController
-
-# line = Electrical_line_Controller()
-# line.add('207Т')
-# camera = Camera_Controller()
-
-cabinet = Cabinet_Controller()
-camera = Camera_Controller()
-# try:
-#
-#     print(camera.get_camera_cabinet())
-#     for elem in camera.get_camera_cabinet():
-#         print(elem.name, elem.link, elem.cabinet)
-#
-#     camera.add('#1','https://i.ytimg.com/vi/HR86p6NVGbY/maxresdefault.jpg','312Т')
-# except peewee.InterfaceError as error:
-#     print('Ошибка!', error)
-# except peewee.IntegrityError as error:
-#     print('Ошибка!', error)
-
-# try:
-#     cabinet.add_value('215','1232')
-#     # cabinet.add_value('12','123')
-#     # for element in cabinet.get():
-#     #     print(element.name,element.department)
-# except peewee.DataError as error:
-#     print('Ошибка!', error)
+from Vews.CabinetView import *
+app = QtWidgets.QApplication(sys.argv)
+MainWindow = QtWidgets.QMainWindow()
+ui = Ui_MainWindow()
+# ui.setupUi(MainWindow)
 
 
-# for el in camera.get():
-#     print(el.name,el.link,el.cabinet_id.name)
-# camera.add('№244', 'ссылка', '215Т')
-# for el in camera.get():
-#     print(el.name,el.link,el.cabinet_id.name)
 
-# electric = Electrical_line_Controller()
-#
-# for el in electric.get():
-#     print(el.state, el.cabinet_id.name)
-# electric.add(False,'207Т')
-# for el in electric.get():
-#     print(el.state, el.cabinet_id.name)
 
-setion = SectionController()
-setion.print_get()
-#
-# setion.add('207T-2')
-# setion.print_get()
-# setion.show('207T-22')
 
-# date1 = [
-#     {'name':'204T-1'},
-#     {'name':'204T-2'},
-# ]
-#
-# setion.add_many_One(date1)
 
-date2 = [
-    ('206T-1'),
-    ('204T-2')
-]
-setion.add_many_Two(date2)
-setion.print_get()
+
+
+ui.startButton.clicked.connect(ui.on_click)
+MainWindow.show()
+sys.exit(app.exec())

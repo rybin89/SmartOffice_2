@@ -29,7 +29,8 @@ class Cabinet_Controller(BaseValidator):
     def get(self):
         return Cabinet.select().execute()
     def show(self, name):
-        return Cabinet.select(Cabinet.name, Cabinet.department).where(Cabinet.name == name).execute()
+        return Cabinet.get(Cabinet.name==name)
+        # return Cabinet.select(Cabinet.name, Cabinet.department).where(Cabinet.name == name).execute()
     # ОБНОВЛЕНИЯ ИМЕНИ по id
 
     def update_name(self,new_name, id):
@@ -38,6 +39,10 @@ class Cabinet_Controller(BaseValidator):
     # удаление
     def delete_field(self,id):
         Cabinet.delete().where(Cabinet.id == id).execute()
+
+    # количество записей
+    def count_filds(self):
+        return Cabinet.select().count()
     class Meta:
 
         messages = {
