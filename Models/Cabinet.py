@@ -3,6 +3,7 @@ from Models.Base import *
 # Модель описывает сущность(таблицу) БД Cabinets
 
 class Cabinet(Base):
+    window_name = 'Кабинеты'
     # название и тип полей (столбцов)
     id = PrimaryKeyField(unique=True)
     name = CharField(max_length=15,null=False,unique=True)

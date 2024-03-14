@@ -1,6 +1,6 @@
 from Controllers.Controller import Controller
 from Models.Cabinet import *
-from Validators.BaseValidator import BaseValidator
+
 
 
 # from peewee_validates import *
@@ -29,15 +29,40 @@ class Cabinet_Controller(BaseValidator):
     def get(self):
         return Cabinet.select().execute()
     def show(self, name):
-        return Cabinet.select(Cabinet.name, Cabinet.department).where(Cabinet.name == name).execute()
+        return Cabinet.get(Cabinet.name == name)
+        # return Cabinet.select(Cabinet.name, Cabinet.department).where(Cabinet.name == name).execute()
+    def show_id(self,name):
+        return Cabinet.get(Cabinet.name == name).id
+    # Метод вывода последней записи
+    def last_row(self):
+
+        return Cabinet.select().order_by(Cabinet.id.desc()).limit(1)
+
+
     # ОБНОВЛЕНИЯ ИМЕНИ по id
 
-    def update_name(self,new_name, id):
-        Cabinet.update({Cabinet.name:new_name}).where(Cabinet.id == id).execute()
+    def update_name(self,new_name, old_name):
+        cabinet = Cabinet(name=new_name,department='departament')
+
+        validator = ModelValidator(cabinet)
+        if validator.validate():
+            Cabinet.update({Cabinet.name:new_name}).where(Cabinet.name == old_name).execute()
+        else:
+            print('Ошибка',validator.errors)
 
     # удаление
-    def delete_field(self,id):
-        Cabinet.delete().where(Cabinet.id == id).execute()
+    def delete_field(self,name):
+        cabinet = Cabinet(name=name,department='departament')
+
+        validator = ModelValidator(cabinet)
+        if validator.validate()!= True:
+            Cabinet.delete().where(Cabinet.name == name).execute()
+        else:
+            print('Ошибка: НЕТ кабинета с таким названием')
+    # Метод вывода количесва записей
+    def count_row(self):
+        return Cabinet.select().count()
+
     class Meta:
 
         messages = {
@@ -46,3 +71,6 @@ class Cabinet_Controller(BaseValidator):
             'unique': 'Значение должно быть уникальным',
 
         }
+if __name__ == "__main__":
+
+    print(Cabinet_Controller().show_id('218Т'))

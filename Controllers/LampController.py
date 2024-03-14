@@ -15,6 +15,11 @@ class LampController():
         query = Lamp.get(Lamp.id == arg_id)
         print('Состояние лампы',query.state,'Имя секции',query.seсtion_id.name,'Кабинет:', query.cabinet_id.name)
 
+    # метод вывода состояния секций по cabinet_id
+    def show_lamps(self,cabinet_id):
+        return Lamp.select().where(Lamp.cabinet_id == cabinet_id).execute()
+
+
     # Добавить по id Кабинета и Секции
     def add(self,section,cabinet):
         Lamp.create(seсtion_id = section, cabinet_id = cabinet)
@@ -42,3 +47,19 @@ class LampController():
 
     def update_Two(self,arg_id,arg_state):
         Lamp.update(state = arg_state).where(Lamp.id == arg_id).execute()
+
+    def power_off_all(self,cabinet_id,arg_state):
+
+        Lamp.update(state = arg_state).where(Lamp.cabinet_id == cabinet_id).execute()
+
+if __name__ == "__main__":
+
+    lamp = LampController()
+    for row in lamp.show_lamps(1):
+        print(row.id, row.state)
+
+    lamp.power_off_all(1,0)
+    for row in lamp.show_lamps(0):
+        print(row.id, row.state)
+    # print(lamp.show_section(1).id)
+    # print(type(lamp.show_section(1).id))

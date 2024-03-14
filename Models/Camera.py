@@ -4,6 +4,7 @@ from Models.Cabinet import Cabinet
 
 
 class Camera(Base):
+    window_name = 'Видеонаблюдение'
     id = PrimaryKeyField(unique=True)
     name = CharField(max_length=15,null=False,unique=True)
     link = TextField(null=False)
