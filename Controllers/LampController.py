@@ -20,6 +20,11 @@ class LampController():
         return Lamp.select().where(Lamp.cabinet_id == cabinet_id).execute()
 
 
+
+    def show_setion(self,seсtion_id, cabinet_id):
+
+        return Lamp.select().where(Lamp.cabinet_id == cabinet_id and Lamp.seсtion_id == seсtion_id).execute()
+
     # Добавить по id Кабинета и Секции
     def add(self,section,cabinet):
         Lamp.create(seсtion_id = section, cabinet_id = cabinet)
@@ -38,10 +43,13 @@ class LampController():
         Lamp.insert_many(data).execute()
 
     # Обновление пособ №1 save()
-    def update_One(self,arg_id, arg_state):
-        lamp = Lamp.get(Lamp.id==arg_id) #создание из выбранной записи по id объекта
-        lamp.state = arg_state #изменяем у выбранного объекта занчение состояния
-        lamp.save() # c помощью функции save() обновляем запись
+    # def update_One(self,arg_id, arg_state):
+    #     lamp = Lamp.get(Lamp.id==arg_id) #создание из выбранной записи по id объекта
+    #     lamp.state = arg_state #изменяем у выбранного объекта занчение состояния
+    #     lamp.save() # c помощью функции save() обновляем запись
+
+    def update_one(self,id,new_state):
+        Lamp.update({Lamp.state:new_state}).where(Lamp.id == id).execute()
 
     # Обновление пособ №2 update()
 
@@ -52,14 +60,43 @@ class LampController():
 
         Lamp.update(state = arg_state).where(Lamp.cabinet_id == cabinet_id).execute()
 
+    # метод который меняет состояние ламп опредёллённой секции определённого кабинета
+    def power_off_section(self,cabinet_id,arg_state,seсtion_id):
+
+        Lamp.update(state=arg_state).where(Lamp.cabinet_id == cabinet_id and Lamp.seсtion_id == seсtion_id).execute()
+
+    # Если включена хотябы одна лампа кабинета выводит True
+    def state_of_lamps(self, cabinet_id):
+        state = False
+        #  в цикле использую метод show_lamps(), который выводит информацию о лампе нужного кабинета
+        for row in self.show_lamps(cabinet_id):
+            if row.state:#row.state == True
+                state=True
+        return state
+    # метод который определяет есть ли включённая лампа в секции
+    def state_of_lamps_section(self,cabinet_id, section_id):
+        state = False
+        for row in self.show_setion(section_id,cabinet_id):
+            if row.state:
+                state = True
+        return state
+    # метод вывода secton_id в виде списка
+    def list_section_id(self,cabinet_id):
+        list = []
+        query = Lamp.select(Lamp.seсtion_id).distinct().where(Lamp.cabinet_id == cabinet_id).execute()
+        for section in query:
+
+            list.append(section.seсtion_id.id)
+        return list
+
+
+
 if __name__ == "__main__":
 
     lamp = LampController()
-    for row in lamp.show_lamps(1):
-        print(row.id, row.state)
+    # lamp.power_off_section(18,True,4)
+    # print(lamp.state_of_lamps_section(18,4))
 
-    lamp.power_off_all(1,0)
-    for row in lamp.show_lamps(0):
-        print(row.id, row.state)
-    # print(lamp.show_section(1).id)
-    # print(type(lamp.show_section(1).id))
+    # lamp.list_section_id(18)
+    print(lamp.list_section_id(1)[0])
+    print(lamp.list_section_id(1)[1])
