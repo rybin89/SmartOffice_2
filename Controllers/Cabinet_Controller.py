@@ -30,10 +30,17 @@ class Cabinet_Controller(BaseValidator):
         return Cabinet.select().execute()
     def show(self, name):
         return Cabinet.select(Cabinet.name, Cabinet.department).where(Cabinet.name == name).execute()
+
+    def show_id(self,name):
+        return Cabinet.get(Cabinet.name == name)
+        # return Cabinet.select(Cabinet.id).where(Cabinet.name==name).execute()
+    #
     # ОБНОВЛЕНИЯ ИМЕНИ по id
 
     def update_name(self,new_name, id):
         Cabinet.update({Cabinet.name:new_name}).where(Cabinet.id == id).execute()
+
+
 
     # удаление
     def delete_field(self,id):
@@ -46,3 +53,7 @@ class Cabinet_Controller(BaseValidator):
             'unique': 'Значение должно быть уникальным',
 
         }
+
+if __name__ == "__main__":
+    cab = Cabinet_Controller()
+    print(cab.show_id('207Т'))

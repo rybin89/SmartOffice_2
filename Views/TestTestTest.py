@@ -1,15 +1,10 @@
-from PyQt6.QtCore import Qt
 from PyQt6.QtWidgets import (
     QApplication,
     QStackedWidget,
     QPushButton,
-    QLabel,
     QHBoxLayout, QWidget
 )
-from PyQt6 import QtCore
-from PyQt6 import QtGui
-from Views.stateCabinet import *
-from Views.smartOff import *
+from smartOff import *
 
 
 
