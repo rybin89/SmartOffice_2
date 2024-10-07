@@ -1,0 +1,216 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>MainWindow</class>
+ <widget class="QMainWindow" name="MainWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>1008</width>
+    <height>739</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>MainWindow</string>
+  </property>
+  <property name="styleSheet">
+   <string notr="true">background-color: rgb(0, 0, 255);</string>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <widget class="QToolButton" name="cabinetButton">
+    <property name="geometry">
+     <rect>
+      <x>50</x>
+      <y>630</y>
+      <width>251</width>
+      <height>71</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color: rgb(255, 255, 255);
+border-radius:10px;
+font: 20pt &quot;MS Shell Dlg 2&quot;;</string>
+    </property>
+    <property name="text">
+     <string>Кабинет</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="titleCabinet">
+    <property name="geometry">
+     <rect>
+      <x>360</x>
+      <y>30</y>
+      <width>281</width>
+      <height>61</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">font: 20pt &quot;MS Shell Dlg 2&quot;;
+color: rgb(255, 255, 255);</string>
+    </property>
+    <property name="text">
+     <string>Изменение кабинетов</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="addButton">
+    <property name="geometry">
+     <rect>
+      <x>740</x>
+      <y>140</y>
+      <width>241</width>
+      <height>41</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">color: rgb(255, 255, 255);
+font: 16pt &quot;Segoe UI&quot;;
+background-color: qlineargradient(spread:pad, x1:0.534, y1:0.199, x2:1, y2:1, stop:0.0564972 rgba(72, 124, 221, 255), stop:1 rgba(255, 255, 255, 255));
+border-radius:3px;</string>
+    </property>
+    <property name="text">
+     <string>Добавить кабинет</string>
+    </property>
+   </widget>
+   <widget class="QTextEdit" name="textEditNameCabinet">
+    <property name="geometry">
+     <rect>
+      <x>30</x>
+      <y>140</y>
+      <width>291</width>
+      <height>41</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color: rgb(255, 255, 255);
+font: 16pt &quot;Segoe UI&quot;;
+border-radius:3px;
+padding:2px;
+placeholderTetx:&quot;Введите название кабинета&quot;;</string>
+    </property>
+    <property name="placeholderText">
+     <string>Введите название кабинета</string>
+    </property>
+   </widget>
+   <widget class="QTextEdit" name="textEditDepartamentCabinet">
+    <property name="geometry">
+     <rect>
+      <x>390</x>
+      <y>140</y>
+      <width>291</width>
+      <height>41</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color: rgb(255, 255, 255);
+font: 16pt &quot;Segoe UI&quot;;
+border-radius:3px;
+padding:2px;
+placeholderTetx:&quot;Введите название кабинета&quot;;</string>
+    </property>
+    <property name="placeholderText">
+     <string>Введите название отделения</string>
+    </property>
+   </widget>
+   <widget class="QTextEdit" name="textUpadateNewNameCabinet">
+    <property name="geometry">
+     <rect>
+      <x>390</x>
+      <y>230</y>
+      <width>291</width>
+      <height>41</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color: rgb(255, 255, 255);
+font: 16pt &quot;Segoe UI&quot;;
+border-radius:3px;
+padding:2px;
+placeholderTetx:&quot;Введите название кабинета&quot;;</string>
+    </property>
+    <property name="placeholderText">
+     <string>Введите новое название</string>
+    </property>
+   </widget>
+   <widget class="QTextEdit" name="textUpadateOldNameCabinet">
+    <property name="geometry">
+     <rect>
+      <x>30</x>
+      <y>230</y>
+      <width>291</width>
+      <height>41</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color: rgb(255, 255, 255);
+font: 16pt &quot;Segoe UI&quot;;
+border-radius:3px;
+padding:2px;
+placeholderTetx:&quot;Введите название кабинета&quot;;</string>
+    </property>
+    <property name="placeholderText">
+     <string>Введите старое название</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="updateButton">
+    <property name="geometry">
+     <rect>
+      <x>740</x>
+      <y>230</y>
+      <width>241</width>
+      <height>41</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">color: rgb(255, 255, 255);
+font: 16pt &quot;Segoe UI&quot;;
+background-color: qlineargradient(spread:pad, x1:0.534, y1:0.199, x2:1, y2:1, stop:0.0564972 rgba(72, 124, 221, 255), stop:1 rgba(255, 255, 255, 255));
+border-radius:3px;</string>
+    </property>
+    <property name="text">
+     <string>Обновит кабинет</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="deleteButton">
+    <property name="geometry">
+     <rect>
+      <x>740</x>
+      <y>320</y>
+      <width>241</width>
+      <height>41</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">color: rgb(255, 255, 255);
+font: 16pt &quot;Segoe UI&quot;;
+background-color: qlineargradient(spread:pad, x1:0.534, y1:0.199, x2:1, y2:1, stop:0.0564972 rgba(72, 124, 221, 255), stop:1 rgba(255, 255, 255, 255));
+border-radius:3px;</string>
+    </property>
+    <property name="text">
+     <string>Удалить кабинет</string>
+    </property>
+   </widget>
+   <widget class="QTextEdit" name="textDeleteNameCabinet">
+    <property name="geometry">
+     <rect>
+      <x>30</x>
+      <y>320</y>
+      <width>291</width>
+      <height>41</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color: rgb(255, 255, 255);
+font: 16pt &quot;Segoe UI&quot;;
+border-radius:3px;
+padding:2px;
+placeholderTetx:&quot;Введите название кабинета&quot;;</string>
+    </property>
+    <property name="placeholderText">
+     <string>Введите название кабинета</string>
+    </property>
+   </widget>
+  </widget>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>

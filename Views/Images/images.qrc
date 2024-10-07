@@ -1,0 +1,5 @@
+<RCC>
+  <qresource prefix="cabinet">
+    <file>Cabinets/home_cabinet.jpg</file>
+  </qresource>
+</RCC>
